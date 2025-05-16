@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Evaara Initiative</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Raleway:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <style>
+    :root {
+      --dark: #2e2e2e;
+      --gray: #a8a8a8;
+      --light: #fdfdfd;
+      --accent: #444;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Raleway', sans-serif;
+      background-color: var(--light);
+      color: var(--dark);
+      line-height: 1.6;
+    }
+
+    header {
+      background-color: #fff;
+      text-align: center;
+      padding: 50px 20px 30px;
+      border-bottom: 1px solid var(--gray);
+    }
+
+    header img {
+      width: 110px;
+      margin-bottom: 15px;
+    }
+
+    header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.8em;
+      color: var(--dark);
+    }
+
+    .about, .register, .contact {
+      max-width: 850px;
+      margin: 60px auto;
+      padding: 0 20px;
+    }
+
+    .about h2, .register h3, .contact h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.2em;
+      margin-bottom: 25px;
+      text-align: center;
+    }
+
+    .about p, .contact p {
+      font-size: 1.1em;
+      text-align: justify;
+    }
+
+    .register {
+      text-align: center;
+      background-color: #fff;
+      border-top: 1px solid var(--gray);
+    }
+
+    .register a.button {
+      background-color: var(--dark);
+      color: white;
+      text-decoration: none;
+      padding: 12px 30px;
+      font-size: 1em;
+      border-radius: 5px;
+      transition: background 0.3s ease;
+      display: inline-block;
+    }
+
+    .register a.button:hover {
+      background-color: var(--accent);
+    }
+
+    .contact {
+      background-color: #fff;
+      border-top: 1px solid var(--gray);
+      text-align: center;
+    }
+
+    .contact form {
+      max-width: 500px;
+      margin: 0 auto 30px;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .contact input, .contact textarea {
+      padding: 12px;
+      font-size: 1em;
+      border: 1px solid var(--gray);
+      border-radius: 5px;
+      resize: vertical;
+    }
+
+    .contact button {
+      background-color: var(--dark);
+      color: white;
+      border: none;
+      padding: 12px;
+      font-size: 1em;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .contact button:hover {
+      background-color: var(--accent);
+    }
+
+    .social-icons {
+      margin-top: 20px;
+    }
+
+    .social-icons a {
+      color: var(--dark);
+      margin: 0 12px;
+      font-size: 1.5em;
+      transition: color 0.3s ease;
+    }
+
+    .social-icons a:hover {
+      color: var(--accent);
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px 10px;
+      font-size: 0.9em;
+      color: var(--gray);
+      background-color: var(--light);
+      border-top: 1px solid var(--gray);
+    }
+
+    /* Navbar styles */
+    .navbar {
+      background-color: #f8f8f8;
+      padding: 10px 20px;
+      border-bottom: 1px solid #ddd;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo {
+      font-size: 24px;
+      font-weight: bold;
+      color: #333;
+      text-decoration: none;
+    }
+
+    .nav-menu {
+      list-style: none;
+      display: flex;
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav-item {
+      margin-left: 20px;
+    }
+
+    .nav-link {
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+      font-size: 18px;
+    }
+
+    .nav-link:hover {
+      color: #007BFF;
+    }
+
+    .nav-toggle {
+      display: none;
+      font-size: 28px;
+      cursor: pointer;
+    }
+
+    @media (max-width: 768px) {
+      .nav-menu {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+      }
+
+      .nav-menu.active {
+        display: flex;
+      }
+
+      .nav-item {
+        margin: 15px 0;
+        text-align: center;
+      }
+
+      .nav-toggle {
+        display: block;
+      }
+    }
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 2em;
+      }
+
+      .about h2, .register h3, .contact h3 {
+        font-size: 1.5em;
+      }
+    }
+.contact-email {
+  text-align: center;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.contact-email p {
+  margin: 0;
+  font-size: 18px;
+}
+
+.center-email {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.center-email p {
+  font-size: 1rem;
+  word-wrap: break-word;
+}
+
+input::placeholder, textarea::placeholder {
+  color: #999;
+}
+form input, form textarea {
+  padding: 12px;
+  border-radius: 5px;
+}
+form {
+  max-width: 600px;
+  margin: 0 auto;
+}
+button[type="submit"] {
+  background-color: #000;
+  color: #fff;
+  border: none;
+  padding: 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  width: 100%;
+  font-size: 1rem;
+}
+button[type="submit"]:hover {
+  background-color: #333;
+}
+
+  </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar">
+  <div class="nav-container">
+    <a href="#" class="nav-logo">Evaara</a>
+    <ul class="nav-menu" id="nav-menu">
+      <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
+      <li class="nav-item"><a href="#register" class="nav-link">Register</a></li>
+      <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
+    </ul>
+    <div class="nav-toggle" id="nav-toggle">&#9776;</div>
+  </div>
+</nav>
+
+<!-- Header -->
+<header>
+  <img src="{{ url_for('static', filename='logo.png') }}" alt="Evaara Logo" />
+  <h1>Evaara Initiative</h1>
+</header>
+
+<!-- About -->
+<section class="about" id="about">
+  <h2>About Us</h2>
+  <p>
+    The name of our organisation - Evaara, is derived from the Sanskrit word Evara meaning God's gift.
+    Like the name, we believe that children are the gifts of God. And we believe that every child has the
+    right to smile and shine despite their conditions and abilities. So here, at Evaara, we aim to help and
+    empower underprivileged children. By spreading awareness and organizing various engaging activities and
+    programs, we believe that we can make a change in the lives of these children. We strive to spread joy,
+    build confidence and shape a world where each child is celebrated and known for who he/she is.
+  </p>
+  <h2>Our Mission</h2>
+  <p>Our mission is to empower underprivileged children. Like our name Evaara, meaning God's gift. We believe that every child, being a gift of god, deserves to smile and shine. We strive to build confidence in each child and bring out the best in them. We strive to connect these little bravehearts and help them grow.</p>
+
+  <h2>Our Vision</h2>
+  <p>Our vision is very simple. We wish to see a society where each child is celebrated for who he/she is. We wish to empower all these little children by helping them improve their skills and brighten their lives. We wish to make a change in the society, fostering inclusivity and happiness.</p>
+</section>
+
+<!-- Register -->
+<section class="register" id="register">
+  <h3>Registrations Now Open</h3>
+  <a class="button" href="https://forms.gle/uRmWga98eebJFV3B8" target="_blank">Register Now</a>
+</section>
+
+<!-- Contact -->
+<section class="contact" id="contact">
+  <h3>Contact Us</h3>
+  <div class="contact-email">
+  <p>Email: <a href="mailto:evaara.initiative@gmail.com">evaara.initiative@gmail.com</a></p>
+</div>
+
+
+
+  <form action="https://formspree.io/f/mbloqgar" method="POST">
+    <input type="text" name="name" placeholder="Your Name" required />
+    <input type="email" name="email" placeholder="Your Email" required />
+    <textarea name="message" rows="4" placeholder="Your Message" required></textarea>
+    <button type="submit">Send Message</button>
+  </form>
+  <div class="social-icons">
+    <a href="https://www.instagram.com/evaara_initiative/" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+  </div>
+
+</section>
+
+<!-- Footer -->
+<footer>
+  &copy; 2025 Evaara Initiative. All rights reserved.
+</footer>
+
+<!-- JavaScript for mobile nav -->
+<script>
+  const navToggle = document.getElementById('nav-toggle');
+  const navMenu = document.getElementById('nav-menu');
+
+  navToggle.addEventListener('click', () => {
+    navMenu.classList.toggle('active');
+  });
+</script>
+
+</body>
+</html>
